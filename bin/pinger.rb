@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
-# This script send ping for ip addresses which you choose.
+# This script sends ping for IP address which you choose.
 # Please add new IP address to IpList if you want. 
 #
 require "optparse"
