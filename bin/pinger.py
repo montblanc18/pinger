@@ -12,8 +12,8 @@ import os
 # ############
 
 IpList=[
-  ["www.yahoo.co.jp","183.79.135.206"],
-  ["www.google.co.jp","74.125.203.94"]]
+    ["www.yahoo.co.jp","183.79.135.206"],
+    ["www.google.co.jp","74.125.203.94"]]
 
 DEFAULT_TIME_INTERVAL = 1
 DEFAULT_ARGUMENT_ENTER = 10000
@@ -49,22 +49,29 @@ def main(args):
         kill_process()
     elif '' == str(enter):
         print('Your did not enter command.')
+        return
+    
         
-    enter = int(enter)
-    if enter <= len(IpList):
-        print('Ping for {} ({})'.format(IpList[enter][0],IpList[enter][1]))
-        cmd = 'ping -i %d -c 3 %s' % (args.interval, IpList[enter][1])
-        print('\n===========\n\n\n')
-    elif enter == 100:
-        print('Ping for google(173.194.38.24)...')
-        #ping www.google.co.jp
-        #ping 173.194.38.24
-        cmd = 'ping -i %d 74.125.203.94 ' % args.interval
-    else:
-        print('[Error]You typed wrong number!!!')
-        exit
-    print(cmd)
-    os.system(cmd)
+    try:
+        enter = int(enter)
+        if enter <= len(IpList):
+            print('Ping for {} ({})'.format(IpList[enter][0],IpList[enter][1]))
+            cmd = 'ping -i %d -c 3 %s' % (args.interval, IpList[enter][1])
+            print('\n===========\n\n\n')
+        elif enter == 100:
+            print('Ping for google(173.194.38.24)...')
+            #ping www.google.co.jp
+            #ping 173.194.38.24
+            cmd = 'ping -i %d 74.125.203.94 ' % args.interval
+        else:
+            print('[Error]You typed wrong number!!!\n\n')
+            return
+        print(cmd)
+        os.system(cmd)
+    except:
+        print('[Error] Your input is {}. This is illegal.\n\n'.format(enter))
+        return 
+        
 
 
 ########
