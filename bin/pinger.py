@@ -24,11 +24,10 @@ argument_enter = DEFAULT_ARGUMENT_ENTER
 # ###########
 
 def kill_process():
-  exit()
-
+    exit()
 
 def main(args):
-    argument_enter = args.number
+    global argument_enter
     print('This is Host Address List')
     print('==================')
     for i in range(len(IpList)):
@@ -80,6 +79,11 @@ if __name__== '__main__':
     parser.add_argument('-n', '--number', type = int, default = DEFAULT_ARGUMENT_ENTER,
                         help = 'Choose the number of IP adress which you want to send pings.')
     args = parser.parse_args()
+
+    # Checking Options...
+    if args.number != DEFAULT_ARGUMENT_ENTER:
+        argument_enter = args.number
+    
     while True:
         main(args)
 
