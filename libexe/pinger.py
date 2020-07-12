@@ -12,8 +12,8 @@ import os
 # ############
 
 IpList=[
-    ["www.yahoo.co.jp","183.79.135.206"],
-    ["www.google.co.jp","74.125.203.94"]]
+    ['www.yahoo.co.jp','183.79.135.206'],
+    ['www.google.co.jp','74.125.203.94']]
 
 DEFAULT_TIME_INTERVAL = 1
 DEFAULT_ARGUMENT_ENTER = 10000
